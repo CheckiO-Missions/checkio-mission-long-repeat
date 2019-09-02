@@ -32,6 +32,9 @@ TESTS = {
         },{
             "input": "aa",
             "answer": 2
+        },{
+            "input": "aaba",
+            "answer": 2
         }
     ]
 }
