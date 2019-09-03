@@ -1,4 +1,4 @@
-def long_repeat(line):
+def long_repeat(line: str) -> int:
     """
         length the longest substring that consists of the same char
     """
