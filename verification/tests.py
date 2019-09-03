@@ -33,6 +33,9 @@ TESTS = {
             "input": "aa",
             "answer": 2
         },{
+            "input": "a",
+            "answer": 1
+        },{
             "input": "aaba",
             "answer": 2
         }
