@@ -1,18 +1,16 @@
-"use strict";
+import assert from "assert";
 
-function longRepeat(line) {
-    // length the longest substring that consists of the same char
-
+function longRepeat(line: string): number {
     // your code here
     return 0;
 }
 
-var assert = require('assert');
+console.log('Example:');
+console.log(longRepeat('sdsffffse'));
 
-if (!global.is_checking) {
-    assert.equal(longRepeat('sdsffffse'), 4, "First")
-    assert.equal(longRepeat('ddvvrwwwrggg'), 3, "Second")
-    assert.equal(longRepeat('abababaab'), 2, "Third")
-    assert.equal(longRepeat(''), 0, "Empty")
-    console.log('"Run" is good. How is "Check"?');
-}
+// These "asserts" are used for self-checking
+assert.equal(longRepeat('sdsffffse'), 4);
+assert.equal(longRepeat('ddvvrwwwrggg'), 3);
+
+console.log("Coding complete? Click 'Check' to earn cool rewards!");
+    
