@@ -22,13 +22,5 @@
     <p>
         <strong>Пример:</strong>
     </p>
-<pre class="brush: python">{% if interpreter.slug == "js-node" %}
-longRepeat('sdsffffse') == 4
-longRepeat('ddvvrwwwrggg') == 3
-{% else %}
-long_repeat('sdsffffse') == 4
-long_repeat('ddvvrwwwrggg') == 3
-{% endif %}</pre>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 </div>
-
-
