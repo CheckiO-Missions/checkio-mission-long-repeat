@@ -1,0 +1,26 @@
+{% if interpreter.slug == "python-3" %}
+<p><i><a href="https://py.checkio.org/forum/post/11382/4-mission-ideas-substrings/">There are four substring missions</a> qui sont nées en une seule journée, et vous ne devriez pas avoir besoin de plus d'une journée pour les résoudre. Toutes ces missions peuvent être résolues par la force brute, mais est-ce toujours la meilleure façon de procéder? (Vous n'avez peut-être pas encore accès à toutes ces missions, mais elles seront disponibles avec l'ouverture d'un plus grand nombre d'îles sur la carte).</i></p>
+{% endif %}
+<p>
+
+    Cette mission est la première de la série. Ici, vous devez trouver la longueur de la plus longue sous-chaîne composée de la même lettre. Par exemple, la ligne "aaabbcaaaa" contient quatre sous-chaînes composées des mêmes lettres "aaa", "bb", "c" et "aaaa". La dernière sous-chaîne est la plus longue, ce qui en fait la réponse.
+</p>
+
+
+<p>
+   <strong>Entrée: </strong> Une chaîne de caractères.
+<p>
+
+   <strong>Sortie: </strong> Un int. 
+</p>
+
+<p style="text-align: center;">
+    <img  title="Long repeat" src="{{MEDIA}}drawing.png" alt="example" style="max-height: 80px">
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Exemple:</strong>
+    </p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
