@@ -1,0 +1,123 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务
+    </div>
+    <div class="answer">
+        您需要计算一行中有多少个元素相继重复，并找出重复的最大值。
+        我建议您从左到右逐渐删除相同的元素，并计算该行缩短了多少。
+        这个差值将等于被删除对象的数量。
+        您可以将收到的值编译成一个列表，然后直接输出最大值。
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我需要帮助以继续完成任务
+    </div>
+    <div class="answer">
+        请阅读以下信息：
+       <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=lstrip#str.lstrip'>str.lstrip()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_lstrip.asp'>example</a> )、
+       <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>example</a> ), 和
+       <a href='https://docs.python.org/3/library/functions.html?highlight=len#len'>len()</a>
+        (<a href='https://www.w3schools.com/python/ref_func_len.asp'>example</a> )、
+        (<a href='https://docs.python.org/3.10/library/functions.html?highlight=max#max'>max()</a> )、
+        (<a href='https://www.w3schools.com/python/ref_func_max.asp'>example</a> )。
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        需要帮助
+    </div>
+    <div class="answer">
+        让我们先弄清楚在while循环中应该做什么。
+        在这个循环中，你应该切断第一个元素（如果它们连续重复了几次）。
+       <pre class="brush: python">
+while line:  # The loop will run until the string is empty
+    line = line.lstrip(line[0])
+
+# output
+''
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我卡住了。我需要一点提示。
+    </div>
+    <div class="answer">
+        为了确定直线缩短了多少，我们需要添加一个变量来记住
+        缩短前的长度。
+       <pre class="brush: python">
+lenline = len(line)  # Save the length of the given line
+while line:
+    line = line.lstrip(line[0])
+    lenline = len(line)  # We update the length of the given line
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        没有任何作用。求救信号
+    </div>
+    <div class="answer">
+         好的，您需要添加另一个变量，该变量将包含缩短行数差值的列表。
+         但是每次都要在这个列表中添加一个新值。
+       <pre class="brush: python">
+result = []  # The list where our result will be saved
+lenline = len(line)
+while line:
+    line = line.lstrip(line[0])
+    result.append(lenline - len(line))  # We add the difference between the lengths to the list
+    lenline = len(line)
+
+# output
+[0, 1, 1, 1, 4, 1, 1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我不想放弃，帮帮我！
+    </div>
+    <div class="answer">
+        您还剩下几件事。用函数表达式表示，返回所有结果值中的最大值。
+        值中的最大值，这就是答案。我们还希望保护我们的代码不出现空字符串;-)。
+        因此，我们将在max()函数中使用 "default "参数。
+        将返回 "0"。
+       <pre class="brush: python">
+def long_repeat(line: str) -> int:
+    result = []
+    lenline = len(line)
+    while line:
+        line = line.lstrip(line[0])
+        result.append(lenline - len(line))
+        lenline = len(line)
+    return max(result, default=0)  # we return the maximum value
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我想成为最优秀的程序员!!!告诉我更多的解决方案!!!1!!!11！
+    </div>
+    <div class="answer">
+        好的，好的！这就是精神！=)
+        这个解决方案很难理解。这里使用了
+        <a href='https://docs.python.org/3.10/library/re.html'>"re"</a> 模块。借助表达式 "re.findall(r'((.)\2*)"
+        我们可以浏览字符串并得到响应
+        [('s', 's'), ('d', 'd'), ('s', 's'), ('ffff', 'f'), ('s', 's'), ('e', 'e')].
+        从这样一个（"元素重复", "元素"）列表中，我们可以很容易地找到重复次数最多的元素及其编号。
+       <pre class="brush: python">
+import re
+
+
+def long_repeat(line: str) -> int:
+    return max(len(i[0]) for i in re.findall(r'((.)\2*)', line)) if line else 0
+        </pre>
+    </div>
+</div>
+
+
+</body>
