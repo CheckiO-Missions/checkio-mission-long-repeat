@@ -1,0 +1,26 @@
+{% if interpreter.slug == "python-3" %}
+<p><i><a href="https://py.checkio.org/forum/post/11382/4-mission-ideas-substrings/">There are four substring missions</a> die alle an einem Tag entstanden sind und Sie sollten nicht mehr als einen Tag brauchen, um sie zu lösen. Alle diese Missionen können einfach mit roher Gewalt gelöst werden, aber ist das immer der beste Weg? (Sie haben vielleicht noch nicht Zugang zu all diesen Missionen, aber sie werden mit mehr geöffneten Inseln auf der Karte verfügbar sein).</i></p>
+{% endif %}
+
+<p>
+    Diese Mission ist die erste der Serie. Hier sollen Sie die Länge der längsten Teilzeichenkette finden, die aus demselben Buchstaben besteht. Zum Beispiel enthält die Zeile "aaabbcaaaa" vier Teilstrings mit den gleichen Buchstaben "aaa", "bb", "c" und "aaaa". Die letzte Teilzeichenkette ist die längste und ist somit die Antwort.
+</p>
+
+
+<p>
+   <strong>Eingabe: </strong> Eine Zeichenkette.
+
+<p>
+   <strong>Ausgabe: </strong> Ein int. 
+</p>
+
+<p style="text-align: center;">
+    <img  title="Long repeat" src="{{MEDIA}}drawing.png" alt="example" style="max-height: 80px">
+</p>
+
+<div class="for_info_only">
+    <p>
+        <strong>Beispiel:</strong>
+    </p>
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
