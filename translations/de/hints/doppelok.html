@@ -1,0 +1,123 @@
+<body data-author="Doppelok">
+<div class="question-answer">
+    <div class="question">
+        Ich weiß nicht, wie ich mit der Lösung dieser Mission beginnen soll
+    </div>
+    <div class="answer">
+        Sie müssen berechnen, wie viele Elemente in einer Reihe nacheinander wiederholt werden und den maximalen Wert der Wiederholungen ermitteln.
+        Ich schlage vor, dass Sie nach und nach identische Elemente von links nach rechts entfernen und berechnen, um wie viel sich die Reihe verkürzt hat.
+        Diese Differenz entspricht der Anzahl der gelöschten Objekte.
+        Sie können die erhaltenen Werte in einer Liste zusammenstellen und dann einfach den Maximalwert ausgeben.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich brauche Hilfe, um die Mission fortzusetzen
+    </div>
+    <div class="answer">
+        Es wird nützlich für Sie sein, einige Informationen zu lesen:
+       <a href='https://docs.python.org/3.10/library/stdtypes.html?highlight=lstrip#str.lstrip'>str.lstrip()</a>
+        (<a href='https://www.w3schools.com/python/ref_string_lstrip.asp'>example</a> ),
+       <a href='https://docs.python.org/3/tutorial/datastructures.html'>list.append()</a>
+        (<a href='https://www.w3schools.com/python/ref_list_append.asp'>example</a> ), und
+       <a href='https://docs.python.org/3/library/functions.html?highlight=len#len'>len()</a>
+        (<a href='https://www.w3schools.com/python/ref_func_len.asp'>example</a> ),
+        (<a href='https://docs.python.org/3.10/library/functions.html?highlight=max#max'>max()</a> ),
+        (<a href='https://www.w3schools.com/python/ref_func_max.asp'>example</a> ).
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Sie brauchen Hilfe!
+    </div>
+    <div class="answer">
+        Beginnen wir damit, herauszufinden, was in der while-Schleife getan werden sollte.
+        In diesem Zyklus sollten Sie das/die erste(n) Element(e) abschneiden (wenn sie mehrmals hintereinander wiederholt werden).
+       <pre class="brush: python">
+while line:  # The loop will run until the string is empty
+    line = line.lstrip(line[0])
+
+# output
+''
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich komme nicht weiter. Ich brauche einen kleinen Hinweis.
+    </div>
+    <div class="answer">
+        Damit wir feststellen können, um wie viel sich unsere Zeile verkürzt hat, müssen wir eine Variable hinzufügen, die sich an die
+        die Länge der Zeile, bevor sie gekürzt wurde.
+       <pre class="brush: python">
+lenline = len(line)  # Save the length of the given line
+while line:
+    line = line.lstrip(line[0])
+    lenline = len(line)  # We update the length of the given line
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nichts funktioniert. SOS
+    </div>
+    <div class="answer">
+         Okay, Sie müssen eine weitere Variable hinzufügen, die eine Liste von Werten für die Differenz der verkürzten Zeilen enthält.
+         Aber fügen Sie jedes Mal einen neuen Wert zu dieser Liste hinzu.
+       <pre class="brush: python">
+result = []  # The list where our result will be saved
+lenline = len(line)
+while line:
+    line = line.lstrip(line[0])
+    result.append(lenline - len(line))  # We add the difference between the lengths to the list
+    lenline = len(line)
+
+# output
+[0, 1, 1, 1, 4, 1, 1]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich will nicht aufgeben, Hilfe!
+    </div>
+    <div class="answer">
+        Es bleiben Ihnen noch ein paar Dinge übrig. Verpacken Sie dies in einen Funktionsausdruck und geben Sie den Maximalwert unter allen Ergebnis
+        werten zurück, das wird die Antwort sein. Es ist auch wünschenswert, unseren Code vor einer leeren Zeichenkette zu schützen;-).
+        Deshalb werden wir das Argument "default" in der Funktion max() verwenden, wenn die Funktion den
+        maximalwert nicht berechnen kann, gibt sie "0" zurück.
+       <pre class="brush: python">
+def long_repeat(line: str) -> int:
+    result = []
+    lenline = len(line)
+    while line:
+        line = line.lstrip(line[0])
+        result.append(lenline - len(line))
+        lenline = len(line)
+    return max(result, default=0)  # we return the maximum value
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ich möchte der beste der besten PROGRAMMIERER sein!!! ZEIGEN SIE MIR MEHR LÖSUNGEN!!!1!!!11!
+    </div>
+    <div class="answer">
+        Okay, okay! Das ist die richtige Einstellung!=)
+        Diese Lösung wird schwer zu verstehen sein. Das
+        <a href='https://docs.python.org/3.10/library/re.html'>"re"</a> modul wird hier verwendet. Mit Hilfe des Ausdrucks "re.findall(r'((.)\2*)"
+        können wir die Zeichenkette durchgehen und erhalten als Antwort
+        [('s', 's'), ('d', 'd'), ('s', 's'), ('ffff', 'f'), ('s', 's'), ('e', 'e')].
+        Aus einer solchen Liste von ("Elementwiederholung", "Element") können wir leicht das am häufigsten wiederholte Element und seine Nummer finden.
+       <pre class="brush: python">
+import re
+
+
+def long_repeat(line: str) -> int:
+    return max(len(i[0]) for i in re.findall(r'((.)\2*)', line)) if line else 0
+        </pre>
+    </div>
+</div>
+
+
+</body>
